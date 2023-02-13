@@ -18,7 +18,11 @@ bool getNextChar(FILE *filePtr, char *currentChar, char *lastChar, int i )
    
 bool isWhiteSpace(char chr )
    {
-
+	   if (chr == '\t' || chr == '\r' || chr == '\v' || chr == '\f' || chr == ' ')
+	      {
+	   	   return true;   
+	      }
+	   return false;
    }
    
 bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)

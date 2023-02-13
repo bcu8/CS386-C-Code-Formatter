@@ -16,7 +16,7 @@ Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brando
 
 # 3. Interviews summary
 
-### Interview 1: 
+### Interview 1:
 
 #### Summary: 
 
@@ -42,7 +42,6 @@ Joshua seemed to be very interested in a C code formatter. He mentioned how form
 #### Assessment: Must have / Nice to have / Don’t care: 
 * Quick and easy formatter (must have) 
 * Being able to easily maintain the same format across every program (must have) 
-
 
 ### Interview 2:
 
@@ -114,20 +113,29 @@ Joshua seemed to be very interested in a C code formatter. He mentioned how form
 
 ### Interview 7:
 
-#### Summary: 
+**Summary:** Finds the idea of a general code formatter to be very useful, especially in consideration with classes general usage of assignments. 
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
-#### Consumer Segments:
+**Interviewer:** Ryley F\
+**Interviewee:** Meaghan F\
+**When:** 2/11/2023
+**Consumer Segments:** Computer Science Major
 
-#### Key Insights: 
+**Key insights**
+  - Almost all CS classes have coding guideline to follow
+  - Did not typically commit very many General Usage Rubric Violations
+  - Though the Leverignton's GUR was relatively strict and stressful
 
-#### Representative Quotes: 
+ **Representative quotes**
+  - “I spent at least an hour or two, though I have spent more, to format my code specifically or to double check if I left anything out”
+  - “I lost more points from the GUR personally in CS136 as I got more used to the rubric in CS249”
+  - “Yes, the majority, if not all my CS classes, have a guideline to follow for coding syntax”
 
-#### Hypotheses that were validated: 
+ **Hypotheses that were validated**
+  - A code formatter would be used especially in correlation with specific programming classes
+  - The general usage rubric is very stressful and difficult to keep up with
 
-#### Assessment: Must have / Nice to have / Don’t care: 
+ **Assessment: Must have / Nice to have / Don’t care**
+  - Nice to have
 
 ### Interview 8:
 

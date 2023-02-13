@@ -4,17 +4,17 @@
 
 When writing code, keeping a neat and consistent format is key to preventing any spaghetti code. Our C code formatter is designed to work with specifically .c files and will automatically format files based on certain guidelines/rules. In addition to this, our formatter will keep track of which lines are formatted and inform the user where each change in the file was made. Users will upload their .c files to our database, which is where the formatter will format the user's file. 
 
-Group 05 – “C Code Formatter ”  
+Group 05 – “C Code Formatter”  
 Date and location: Feb 12, 2023  
 Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brandon Udall, and Ethan Ikhifa 
 
 # 2. Initial value proposition and consumer segments
 
 #### We can help students who use C in at least one of the following areas 
-#### * Save points from GUR reductions
-#### * Save time formatting code 
-#### * Increase code readibility
-#### * Standardize a formatting strategy for individual or group work
+* Save points from GUR reductions
+* Save time formatting code 
+* Increase code readibility
+* Standardize a formatting strategy for individual or group work
 
 # 3. Interviews summary
 
@@ -157,20 +157,24 @@ Not all students struggle with c code styling/formatting. basic conventions come
 
 ### Interview 5:
 
-#### Summary: 
+#### Summary: Interviewee talked about their experiences using C and using the GUR in question. They also elaborated on their coding process.
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
-#### Consumer Segments:
+#### Interviewer: Brandon Udall
+#### Interviewee: Nicholas Henderson
+#### When: 02/8/2023
+#### Consumer Segments: Applied Computer Science Student, age range 20-22
 
-#### Key Insights: 
+#### Key Insights: After the official interview, Interviewee expressed his support for the tool because it would help point out GUR errors, saving time proof-reading code.
 
 #### Representative Quotes: 
 
-#### Hypotheses that were validated: 
+* "I lost less than 10 points due to the GUR per week."
+* "...I usually spend about 10 minutes formatting my code."
 
-#### Assessment: Must have / Nice to have / Don’t care: 
+#### Hypotheses that were validated: Can be effective in saving students points and time
+
+#### Assessment: Nice to have or Must have (depends on how desperately student needs the points the formatter can save)
+
 
 ### Interview 7:
 
@@ -232,28 +236,11 @@ Not all students struggle with c code styling/formatting. basic conventions come
 
 #### Assessment: Must have / Nice to have / Don’t care: Nice to have
 
-### Interview 10:
-
-#### Summary: Interviewee talked about their experiences using C and using the GUR in question.
-
-#### Interviewer: Brandon Udall
-#### Interviewee: Nicholas Henderson
-#### When: 02/8/2023
-#### Consumer Segments: Applied Computer Science Student, age range 20-22
-
-#### Key Insights: Interviewee expressed his support for the tool because it would help point out GUR errors, saving time proof-reading code.
-
-#### Representative Quotes: 
-
-#### * "I lost less than 10 points due to the GUR per week."
-#### * "...I usually spend about 10 minutes formatting my code."
-
-#### Hypotheses that were validated: Can be effective in saving students points and time
-
-#### Assessment: Nice to have or Must have (depends on how desperately student needs the points the formatter can save)
-
 # 4. Final value proposition and consumer segments
 
-#### Final Value Proposition: 
+#### We can help students who use C in at least one of the following areas 
+* Save points from GUR reductions
+* Save time formatting code 
+* Increase code readibility
+* Standardize a formatting strategy for individual or group work
 
-#### Consumer Segments: 

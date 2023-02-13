@@ -123,18 +123,35 @@ Nice to have
 
 #### Summary: 
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
-#### Consumer Segments:
+#### Interviewer: ethan ikhifa 
+#### Interviewee: david knight
+#### When: 02/08/23
+#### Consumer Segments: 
+
+Computer Science Student:
 
 #### Key Insights: 
 
+Interviewee has developed a well structured code style within the language C and does not struggle often with basic C conventions. Despite this, he does not start to struggle syntactically until working with double pointers. 
+
+
 #### Representative Quotes: 
+
+"When given a good IDE with a compiler writing basic c code isnt to hard." (In regards to c code deliverables)
+
 
 #### Hypotheses that were validated: 
 
+Not all students struggle with c code styling/formatting. basic conventions come natural to programmers with experience in C.
+
 #### Assessment: Must have / Nice to have / Don’t care: 
+
+ Nice to have: 
+ 
+ "in its current state its really nice to have. If it were to modifed to fit any c styling guide, 
+  it would a must have." - Interviewee
+
+
 
 ### Interview 5:
 

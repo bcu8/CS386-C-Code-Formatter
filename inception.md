@@ -175,6 +175,25 @@ Not all students struggle with c code styling/formatting. basic conventions come
 
 #### Assessment: Nice to have or Must have (depends on how desperately student needs the points the formatter can save)
 
+### Interview 6:
+
+#### Summary: Interviewee talked about their experiences using C and using the GUR in question. They also elaborated on their coding process.
+
+#### Interviewer: Brandon Udall
+#### Interviewee: Travis Hickman
+#### When: 02/8/2023
+#### Consumer Segments: Computer Science Student, age range 20-22
+
+#### Key Insights: interviewee talked about how he doesnt prefer formatting with Leverington's formatting requirements. 
+
+#### Representative Quotes: 
+
+* "Outside of leveringtons class I use my own method of formatting."
+* "On average I lose probably 5-15 points from the GUR."
+
+#### Hypotheses that were validated: Can be effective in saving students points, time, and allows student autonomy for code formatting when writing.
+
+#### Assessment: Nice to have or Must have (depends on how desperately student needs the points the formatter can save)
 
 ### Interview 7:
 

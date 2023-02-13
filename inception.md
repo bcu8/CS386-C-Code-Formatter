@@ -10,9 +10,11 @@ Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brando
 
 # 2. Initial value proposition and consumer segments
 
-#### Initial Value Proposition: 
-
-#### Consumer segments: 
+#### We can help students who use C in at least one of the following areas 
+#### * Save points from GUR reductions
+#### * Save time formatting code 
+#### * Increase code readibility
+#### * Standardize a formatting strategy for individual or group work
 
 # 3. Interviews summary
 
@@ -229,6 +231,26 @@ Not all students struggle with c code styling/formatting. basic conventions come
 #### Hypotheses that were validated: Software has real world application within courses that have strict rules about code formatting.
 
 #### Assessment: Must have / Nice to have / Don’t care: Nice to have
+
+### Interview 10:
+
+#### Summary: Interviewee talked about their experiences using C and using the GUR in question.
+
+#### Interviewer: Brandon Udall
+#### Interviewee: Nicholas Henderson
+#### When: 02/8/2023
+#### Consumer Segments: Applied Computer Science Student, age range 20-22
+
+#### Key Insights: Interviewee expressed his support for the tool because it would help point out GUR errors, saving time proof-reading code.
+
+#### Representative Quotes: 
+
+#### * "I lost less than 10 points due to the GUR per week."
+#### * "...I usually spend about 10 minutes formatting my code."
+
+#### Hypotheses that were validated: Can be effective in saving students points and time
+
+#### Assessment: Nice to have or Must have (depends on how desperately student needs the points the formatter can save)
 
 # 4. Final value proposition and consumer segments
 

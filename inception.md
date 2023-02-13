@@ -2,8 +2,10 @@
 
 # 1. Introduction 
 
-Group 05 – “C Code Formatter ”
-Date and location: Feb 12, 2023
+When writing code, keeping a neat and consistent format is key to preventing any spaghetti code. Our C code formatter is designed to work with specifically .c files and will automatically format files based on certain guidelines/rules. In addition to this, our formatter will keep track of which lines are formatted and inform the user where each change in the file was made. Users will upload their .c files to our database, which is where the formatter will format the user's file. 
+
+Group 05 – “C Code Formatter ”  
+Date and location: Feb 12, 2023  
 Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brandon Udall, and Ethan Ikhifa 
 
 # 2. Initial value proposition and consumer segments
@@ -18,18 +20,28 @@ Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brando
 
 #### Summary: 
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
+Joshua seemed to be very interested in a C code formatter. He mentioned how formatting is very important when writing programs. In addition to this, he does not need to be explicitly told to format his code since formatting is already a high priority for him. Finally, he relies on Visual Studio to automatically format his code as he writes it. 
+
+#### Interviewer: Kane Davidson
+#### Interviewee: Joshua VanderMeer 
+#### When: 2/12/2023
 #### Consumer Segments:
+* CS Student 
 
 #### Key Insights: 
+* Consistent patterns/style is very convenient. 
+* Formatting is very nice. 
 
 #### Representative Quotes: 
+* "Yes, I'm OCD with my coding and everything has to have a format. 
+* "I do not spend a lot of time formatting my code since Visual Studio already does it for me." 
 
 #### Hypotheses that were validated: 
+* People appreciate easily formatting their programs. 
 
 #### Assessment: Must have / Nice to have / Don’t care: 
+* Quick and easy formatter (must have) 
+* Being able to easily maintain the same format across every program (must have) 
 
 
 ### Interview 2:
@@ -119,37 +131,37 @@ Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brando
 
 ### Interview 8:
 
-#### Summary: Interviewee gave insight of how he would use a code formatter within the team he works for.
+#### Summary: 
 
-#### Interviewer: Ian Tuohy
-#### Interviewee: Maxwell Kozlov
-#### When: 02/06/2023
-#### Consumer Segments: 18-22 Age Range, Software Quality Assurance Intern
+#### Interviewer: 
+#### Interviewee: 
+#### When: 
+#### Consumer Segments:
 
-#### Key Insights: Software has real world application and value. Interviewee mentioned looking for a formatter for a team he was working with.
+#### Key Insights: 
 
-#### Representative Quotes: "I try to format my code to follow conventions as I program but everyone knows how unreliable that is."
+#### Representative Quotes: 
 
-#### Hypotheses that were validated: Real world application, there's a need for the software.
+#### Hypotheses that were validated: 
 
-#### Assessment: Must have / Nice to have / Don’t care: Nice to have
+#### Assessment: Must have / Nice to have / Don’t care: 
 
 ### Interview 9:
 
-#### Summary: Interviewee gave insight about the use for a code formatter within the computer science courses hes taken throughout university.
+#### Summary: 
 
-#### Interviewer: Ian Tuohy
-#### Interviewee: Cody Beck
-#### When: 02/10/2023
-#### Consumer Segments: Computer Science student, age range 18-22
+#### Interviewer: 
+#### Interviewee: 
+#### When: 
+#### Consumer Segments:
 
-#### Key Insights: Showed value for the use of a code formatter for certain guidelines in computer science courses.
+#### Key Insights: 
 
-#### Representative Quotes: "I find that especially given some of the formatting constraints for programming classes, it is hard to configure my text editor to follow very specific formats."
+#### Representative Quotes: 
 
-#### Hypotheses that were validated: Software has real world application within courses that have strict rules about code formatting.
+#### Hypotheses that were validated: 
 
-#### Assessment: Must have / Nice to have / Don’t care: Nice to have
+#### Assessment: Must have / Nice to have / Don’t care: 
 
 # 4. Final value proposition and consumer segments
 

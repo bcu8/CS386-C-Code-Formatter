@@ -2,8 +2,10 @@
 
 # 1. Introduction 
 
-Group 05 – “C Code Formatter ”
-Date and location: Feb 12, 2023
+When writing code, keeping a neat and consistent format is key to preventing any spaghetti code. Our C code formatter is designed to work with specifically .c files and will automatically format files based on certain guidelines/rules. In addition to this, our formatter will keep track of which lines are formatted and inform the user where each change in the file was made. Users will upload their .c files to our database, which is where the formatter will format the user's file. 
+
+Group 05 – “C Code Formatter ”  
+Date and location: Feb 12, 2023  
 Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brandon Udall, and Ethan Ikhifa 
 
 # 2. Initial value proposition and consumer segments
@@ -14,30 +16,32 @@ Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brando
 
 # 3. Interviews summary
 
-**Summary:** Finds the idea of a general code formatter to be very useful, especially in consideration with classes general usage of assignments. 
+### Interview 1:
 
-**Interviewer:** Ryley F\
-**Interviewee:** Meaghan F\
-**When:** 2/11/2023
-**Consumer Segments:** Computer Science Major
+#### Summary: 
 
-**Key insights**
-  - Almost all CS classes have coding guideline to follow
-  - Did not typically commit very many General Usage Rubric Violations
-  - Though the Leverignton's GUR was relatively strict and stressful
+Joshua seemed to be very interested in a C code formatter. He mentioned how formatting is very important when writing programs. In addition to this, he does not need to be explicitly told to format his code since formatting is already a high priority for him. Finally, he relies on Visual Studio to automatically format his code as he writes it. 
 
- **Representative quotes**
-  - “I spent at least an hour or two, though I have spent more, to format my code specifically or to double check if I left anything out”
-  - “I lost more points from the GUR personally in CS136 as I got more used to the rubric in CS249”
-  - “Yes, the majority, if not all my CS classes, have a guideline to follow for coding syntax”
+#### Interviewer: Kane Davidson
+#### Interviewee: Joshua VanderMeer 
+#### When: 2/12/2023
+#### Consumer Segments:
+* CS Student 
 
- **Hypotheses that were validated**
-  - A code formatter would be used especially in correlation with specific programming classes
-  - The general usage rubric is very stressful and difficult to keep up with
+#### Key Insights: 
+* Consistent patterns/style is very convenient. 
+* Formatting is very nice. 
 
- **Assessment: Must have / Nice to have / Don’t care**
-  - Nice to have
+#### Representative Quotes: 
+* "Yes, I'm OCD with my coding and everything has to have a format. 
+* "I do not spend a lot of time formatting my code since Visual Studio already does it for me." 
 
+#### Hypotheses that were validated: 
+* People appreciate easily formatting their programs. 
+
+#### Assessment: Must have / Nice to have / Don’t care: 
+* Quick and easy formatter (must have) 
+* Being able to easily maintain the same format across every program (must have) 
 
 ### Interview 2:
 
@@ -109,54 +113,63 @@ Group Members: Kane Davidson, Ryley Fernandez, Nick Wiltshire, Ian Tuohy, Brando
 
 ### Interview 7:
 
-#### Summary: 
+**Summary:** Finds the idea of a general code formatter to be very useful, especially in consideration with classes general usage of assignments. 
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
-#### Consumer Segments:
+**Interviewer:** Ryley F\
+**Interviewee:** Meaghan F\
+**When:** 2/11/2023
+**Consumer Segments:** Computer Science Major
 
-#### Key Insights: 
+**Key insights**
+  - Almost all CS classes have coding guideline to follow
+  - Did not typically commit very many General Usage Rubric Violations
+  - Though the Leverignton's GUR was relatively strict and stressful
 
-#### Representative Quotes: 
+ **Representative quotes**
+  - “I spent at least an hour or two, though I have spent more, to format my code specifically or to double check if I left anything out”
+  - “I lost more points from the GUR personally in CS136 as I got more used to the rubric in CS249”
+  - “Yes, the majority, if not all my CS classes, have a guideline to follow for coding syntax”
 
-#### Hypotheses that were validated: 
+ **Hypotheses that were validated**
+  - A code formatter would be used especially in correlation with specific programming classes
+  - The general usage rubric is very stressful and difficult to keep up with
 
-#### Assessment: Must have / Nice to have / Don’t care: 
+ **Assessment: Must have / Nice to have / Don’t care**
+  - Nice to have
 
 ### Interview 8:
 
-#### Summary: 
+#### Summary: Interviewee gave insight of how he would use a code formatter within the team he works for.
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
-#### Consumer Segments:
+#### Interviewer: Ian Tuohy
+#### Interviewee: Maxwell Kozlov
+#### When: 02/06/2023
+#### Consumer Segments: 18-22 Age Range, Software Quality Assurance Intern
 
-#### Key Insights: 
+#### Key Insights: Software has real world application and value. Interviewee mentioned looking for a formatter for a team he was working with.
 
-#### Representative Quotes: 
+#### Representative Quotes: "I try to format my code to follow conventions as I program but everyone knows how unreliable that is."
 
-#### Hypotheses that were validated: 
+#### Hypotheses that were validated: Real world application, there's a need for the software.
 
-#### Assessment: Must have / Nice to have / Don’t care: 
+#### Assessment: Must have / Nice to have / Don’t care: Nice to have
 
 ### Interview 9:
 
-#### Summary: 
+#### Summary: Interviewee gave insight about the use for a code formatter within the computer science courses hes taken throughout university.
 
-#### Interviewer: 
-#### Interviewee: 
-#### When: 
-#### Consumer Segments:
+#### Interviewer: Ian Tuohy
+#### Interviewee: Cody Beck
+#### When: 02/10/2023
+#### Consumer Segments: Computer Science student, age range 18-22
 
-#### Key Insights: 
+#### Key Insights: Showed value for the use of a code formatter for certain guidelines in computer science courses.
 
-#### Representative Quotes: 
+#### Representative Quotes: "I find that especially given some of the formatting constraints for programming classes, it is hard to configure my text editor to follow very specific formats."
 
-#### Hypotheses that were validated: 
+#### Hypotheses that were validated: Software has real world application within courses that have strict rules about code formatting.
 
-#### Assessment: Must have / Nice to have / Don’t care: 
+#### Assessment: Must have / Nice to have / Don’t care: Nice to have
 
 # 4. Final value proposition and consumer segments
 

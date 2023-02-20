@@ -46,10 +46,10 @@ Potential Ideas
 
 
 ## 4. Non-Functional Requirements
-Website with descriptions, rubrics, and examples provided
-User provided files must not be altered by the program
-Formatted code will be placed in a file with name, <user_program_name>FORMATTED.c.
-A list of GUR violations will be viewable in the main interface of the program (non-downloadable).
+1. Website with descriptions, rubrics, and examples provided
+2. User provided files must not be altered by the program
+3. Formatted code will be placed in a file with name, <user_program_name>FORMATTED.c.
+4. A list of GUR violations will be viewable in the main interface of the program (non-downloadable).
 
 ## 5. MVP
 The MVP should be a program which formats input files’ spacing and adds comments that include where GUR violations occurred as well as adds up how many points the detected violations are worth.

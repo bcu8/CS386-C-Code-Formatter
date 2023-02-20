@@ -2,14 +2,21 @@
 
 ## 1. Positioning
 ### 1.1. Problem Statement :
-	The problem of inconsistent formatting between programmers affects their grade in classes and other programmers, the impact of which costs student programmers grade reductions for assignments  as well as impacts readability for programmers from one program to the next.
+	The problem of inconsistent formatting between programmers affects their grade in classes and other
+	programmers, the impact of which costs student programmers grade reductions for assignments  as well as
+	impacts readability for programmers from one program to the next.
 
 
 ### 1.2. Product Position Statement :
-	For users of C who want a standardized and simple way for formatting code. The C-Code Formatter is a code formatter that integrates the GUR formatting and usage requirements from CS136 and CS249. Unlike most ide formatters, our product will show where GUR violations occur as well as how many points the fix is worth in addition to applying general formatting for readability.
+	For users of C who want a standardized and simple way for formatting code. The C-Code Formatter 
+	is a code formatter that integrates the GUR formatting and usage requirements from CS136 and CS249. 
+	Unlike most ide formatters, our product will show where GUR violations occur as well as how many
+	points the fix is worth in addition to applying general formatting for readability.
 
 ### 1.3. Value Proposition & Consumer Segments:
-	Value Propositions: C Code Formatter is an application that can format C code to specific guidelines that allows programmers to focus less on formatting and more on coding, prioritizing the quality of a program over the adherence to formatting guidelines.
+	Value Propositions: C Code Formatter is an application that can format C code to specific 
+	guidelines that allows programmers to focus less on formatting and more on coding, 
+	prioritizing the quality of a program over the adherence to formatting guidelines.
 	Consumer Segments: Computer Science related college students.
 
 ## 2. Stakeholders
@@ -33,8 +40,8 @@ Ability to upload .c files
 Search through uploaded file and markdown GUR/Formatting violations
 Return edited file with suggestions, comments, and conclusive GUR summary
 Potential Ideas
-* Allow insertion of other templates to be used
-* Allow folder submission of whole collection of valid .c files
+1. Allow insertion of other templates to be used
+2. Allow folder submission of whole collection of valid .c files
 
 
 
@@ -57,10 +64,15 @@ The MVP should be a program which formats input files’ spacing and adds commen
 ### 6.2 Use Case Descriptions and Interface Sketch
 
 **Use Case**: Viewing File with Comments on website
-**Actor**: C Code Formatting User  
+
+**Actor** : C Code Formatting User 
+
 **Description**: The user will be able to see their uploaded file along with additional comments and an evaluation regarding GUR violations and formatting suggestions   
+
 **Preconditions**: The user properly uploaded their file to the formatter 
+
 **Postconditions**: The user can download the edited file with GUR suggestions 
+
 **Main Flow**:
 1. The use case begins when the C Code Formatting user has finished uploading their .c file 
 2. After uploading, the software will read in the file and insert comments and suggestions regarding GUR violations and improper formatting.
@@ -73,10 +85,14 @@ N/A
 ![image](https://user-images.githubusercontent.com/123568619/220023166-fb1798ef-fb0e-4a5d-b366-8fdcfe8f3926.png)
 
 **Use Case**: Upload File
+
 **Actor**: C Code Formatting User  
-**Description**: The user can upload their file to be then tested by the software for formatting issues.   
+
+**Description**: The user can upload their file to be then tested by the software for formatting issues. 
+
 **Preconditions**: The user has a .c file that can compile correctly 
 **Postconditions**: The user can initiate the testing and formatting of the file. 
+
 **Main Flow**:
 1. The use case begins when the C Code Formatting user has opened the website to upload their file. 
 2. Afterwards, the user will upload their file to be read in by the software.
@@ -90,8 +106,11 @@ N/A
 
 
 **Use Case**: Academic Comparative Research Reference 
+
 **Actor**: C Code Formatting User  
+
 **Description**: The user will be able to conduct research and test or complete their own uncut C-code file and run the formatter for a valuable learning reference. The user can input their code and have the software identify formatting issues that need to be fixed.
+
 **Preconditions**: The user properly uploaded their file to the formatter reference file or just pull it up in a text-editor. The user has a code file that can compile correctly.
 **Main Flow**:
 1. The use case starts when a C Code Formatting user decides they need a reference or  academic comparative research and when the user opens the software. 
@@ -105,11 +124,16 @@ N/A
 ![image](https://user-images.githubusercontent.com/123568619/220023421-830e05e2-7d8d-4084-a79d-da91fb2440e7.png)
 
 
-**Use Case**: Download edited file 
+**Use Case**: Download edited file
+
 **Actor**: C-code formatter user 
-**Description**: The user downloads the formatted .c file after uploading it to be formatted.  
-**Preconditions**: The user uploaded their pre-formatted file to the formatter. 
+
+**Description**: The user downloads the formatted .c file after uploading it to be formatted. 
+
+**Preconditions**: The user uploaded their pre-formatted file to the formatter.
+
 **Postconditions**: The user can download their formatted .c file. 
+
 **Main Flow**:
 The use case begins after the user uploads their file to be formatted. 
 The user downloads their formatted file. 
@@ -124,31 +148,42 @@ N/A
 
 
 **Use Case** : Viewing GUR Guidelines
+
 **Actor** : C-Code Formatting User
+
 **Description** :  The user can click to see the GUR that will be referenced by the program. In other words only the violations on the referenced GUR will be flagged by program.
+
 **Preconditions** : NA
+
 **Postconditions** : NA
+
 **Main Flow** : 
-The user clicks to view the GUR
-The user views the GUR
-The user exits the GUR view
-The use case ends
+1. The user clicks to view the GUR
+2. The user views the GUR
+3. The user exits the GUR view
+4. The use case ends
 
 **Alternative Flow** : NA
+
 **User Interface Sketch**
 
 ![image](https://user-images.githubusercontent.com/123568619/220023643-a84faa01-907d-48e7-a32a-187866a05bc7.png)
 
 
 **Use Case**: Sending Feedback to the developers
+
 **Actor** :C-Code Formatter user
+
 **Description** :  The user will have a panel where they can submit anonymous feedback to the devs. It could be suggestions, bugs, complaints etc.
+
 **Preconditions** : NA
+
 **Postconditions** : NA
+
 **Main Flow** : 
-Click add comment button in main interface
-Type comment in text box
-Submit
+1. Click add comment button in main interface
+2. Type comment in text box
+3. Submit
 **Alternative Flow** : NA
 **User Interface Sketch**
 
@@ -156,12 +191,17 @@ Submit
 
 
 **Use Case**: View Source Code
+
 **Actor** :C-Code Formatter user
+
 **Description** :  User can view the github page and look at the source code.
+
 **Preconditions**:NA 
+
 **Postconditions**: NA
+
 **Main Flow**:
-Click link to view source code from the main interface
+1. Click link to view source code from the main interface
 **Alternative Flow**: NA
 **User Interface Sketch**
 

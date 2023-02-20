@@ -36,12 +36,12 @@
 
 
 ## 3. Functional Requirements
-Ability to upload .c files
-Search through uploaded file and markdown GUR/Formatting violations
-Return edited file with suggestions, comments, and conclusive GUR summary
-Potential Ideas
-1. Allow insertion of other templates to be used
-2. Allow folder submission of whole collection of valid .c files
+1. Ability to upload .c files
+2. Search through uploaded file and markdown GUR/Formatting violations
+3. Return edited file with suggestions, comments, and conclusive GUR summary
+4. Potential Ideas
+5. Allow insertion of other templates to be used
+6. Allow folder submission of whole collection of valid .c files
 
 
 

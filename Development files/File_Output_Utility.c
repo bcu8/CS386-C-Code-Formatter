@@ -165,10 +165,10 @@ non-commercial use as long as the above copyright statement is included.
         // check for open file
            // function: checkForOutputFileOpen
         if( filePtr != NULL )
-           {
-            // write character
-               // function: fprintf
-            fprintf( filePtr, "%c", outChar );
+           {  
+			// write character
+				// function: fprintf
+			fprintf( filePtr, "%c", outChar );			  
 
             // return successful operation
             return true;

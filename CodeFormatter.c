@@ -18,6 +18,7 @@ The graders experience will also become easier and more efficient.
 
 //constants==============================================================================
 const char *OUT_FILE_STAMP="FORMATTED.c";
+const int LINE_LENGTH_CAP = 80;
 
 //prototypes=============================================================================
 
@@ -28,7 +29,7 @@ void createOutputFileName(const char *inString, char *outString);
 /*function takes in pointer to input file, pointer to currentChar, pointer to lastChar, and 
 iteration. Returns true if file has more data, false if file has ended. updates current 
 and last char as return parameters*/   
-bool getNextChar(FILE *filePtr, char *currentChar, char *lastChar, int i );
+bool getNextChar(FILE *filePtr, char *currentChar, char *lastChar);
 
 //function to test if input char is a whitespace char
 bool isWhiteSpace(char chr );
@@ -68,6 +69,16 @@ int main ()
 	//write formatted code to output file
 	writeFormattedFile(inputFilePtr, outputOpen, outFileName);
 	
+	//close input and output files
+	closeOutputFile();
+	fclose(inputFilePtr);
+	
+	//tell user new file name
+	printf("\nName of output file: \"%s\"\n\n",outFileName);
+	
+	//notify user of program end
+	printf("PROGRAM END\n");
+	
 	//end main
 	return 0;
    }
@@ -88,21 +99,19 @@ void createOutputFileName(const char *inString, char *outString)
 /*function takes in pointer to input file, pointer to currentChar, pointer to lastChar, 
 and iteration. Returns true if file has more data, false if file has ended. updates 
 current and last char as return parameters*/   
-bool getNextChar(FILE *filePtr, char *currentChar, char *lastChar, int i )
+bool getNextChar(FILE *filePtr, char *currentChar, char *lastChar )
    {
-	//if not first iteration, update lastChar
-	if ( i != 0 )
-	   {
-	    *lastChar = *currentChar;
-	   }
+	*lastChar = *currentChar;
+
+	//otherwise update currentChar and return true
+	*currentChar = fgetc(filePtr);
 	
 	//return false if end of file detected
 	if ( feof( filePtr ) )
 	   {
 		return false;		
 	   }
-	//otherwise update currentChar and return true
-	*currentChar = fgetc(filePtr);
+	   
 	return true;
    }
    
@@ -118,29 +127,25 @@ bool isWhiteSpace(char chr )
 bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
    {
 	//initialize variables
-	char currentChar, lastChar, trashChar=' ';
-	int leadingSpaces = 0;
-	int i=0,lineLength=0, currentLine=1;	
-	   
+	char currentChar='S', lastChar, trashChar=' ';
+	int indent = 0;
+	int lineLength=0, currentLine=1;		   
 	   
 	//check if input and output files sucessfully opened
 	if ( outputOpen && inputFilePtr!=NULL )
 	   {		
 		   
 		//start while loop to get next char, loop ends when no more chars found
-		while ( getNextChar( inputFilePtr, &currentChar, &lastChar, i ) )
+		while ( getNextChar( inputFilePtr, &currentChar, &lastChar) )
 		   {						
 			//if char is a new line
 			if ( currentChar == '\n' )
-			   {
-				//write new line
-				writeEndlineToFile();
-				
+			   {				
 				//check line length
 				if (lineLength > 80)
 			       {
 				    //if line length exceeds 80 notify user
-				    printf("Line %d exceeds 80 characters\n", currentLine);
+				    printf("Line %d exceeds %d characters\n", currentLine, LINE_LENGTH_CAP);
 			       }
 				
 				//reset line length
@@ -149,25 +154,38 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 				//increment current line
 				currentLine++;
 				
-				//read through characters until white space is gone
-				while ( isWhiteSpace(trashChar) )
+				//account for possibility of multiple new lines, loop through them.
+				while ( currentChar == '\n')
 				   {
-					trashChar = fgetc(inputFilePtr);
-				   }
+					//write new line
+					writeEndlineToFile();
+					
+					//read through characters until white space is gone
+					while ( isWhiteSpace(trashChar) )
+					   {
+						trashChar = fgetc(inputFilePtr);
+						
+						//if file end detected return true
+						if ( feof( inputFilePtr ) )
+						   {
+							return true;		
+						   }
+				       }
 				
-				//store new currentChar
-				currentChar=trashChar;
-				
-				//reset trashChar
-				trashChar=' ';							   
+					//store new currentChar
+					currentChar=trashChar;
+					
+					//reset trashChar
+					trashChar=' ';	
+				   }					
 
 				//determine if change in leading spaces is necessary
 				if ( currentChar == '{' )
 					{
-					leadingSpaces+=3; 
+					indent+=3; 
 				
 					//print leading spaces
-					writeCharactersToFile(leadingSpaces, ' ');
+					writeCharactersToFile(indent, ' ');
 			
 					//print currentChar to outFile
 					writeCharacterToFile(currentChar);
@@ -176,30 +194,29 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 					{
 						
 					//print leading spaces
-					writeCharactersToFile(leadingSpaces, ' ');
+					writeCharactersToFile(indent, ' ');
 			
 					//print currentChar to outFile
 					writeCharacterToFile(currentChar);
 					
-					leadingSpaces-=3;								
+					indent-=3;								
 					}
-				else if (leadingSpaces==0)
+				else if (indent==0)
 					{			
 					//print currentChar to outFile
 					writeCharacterToFile(currentChar);  
-			        }
+			        }			
 				else
 				   {
 					//print leading spaces
-					writeCharactersToFile(leadingSpaces + 1, ' ');
+					writeCharactersToFile(indent + 1, ' ');
 			
 					//print currentChar to outFile
 					writeCharacterToFile(currentChar);
 					
 					//update line length
-					lineLength=leadingSpaces+1;
-				   }					
-					   
+					lineLength=indent+1;
+				   }										   
 			   }
 			else 
 			   {
@@ -209,14 +226,7 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 				//increment line length
 				lineLength++;
 			   }
-			   			
-			//increment iteration
-			i++;
 		   }
-		   
-		//close input and output files
-		closeOutputFile();
-		fclose(inputFilePtr);
 	   }
 	//if file didnt open, notify user
 	else
@@ -237,12 +247,6 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 		//return false
 		return false;
 	   }
-	
-	//tell user new file name
-	printf("\nName of output file: \"%s\"\n\n",outFileName);
-	
-	//notify user of program end
-	printf("PROGRAM END\n");
 	
 	return true;
    }

@@ -1,6 +1,6 @@
 # Analysis
 
-##System Description
+## System Description
 
 The program we are building aims to solve the problem of formatting issues in C code. The system's position is to provide users with an automated solution for identifying and fixing GUR issues in their code, improving its readability, maintainability, and functionality. Our value proposition is to save developers' time and effort in manually reviewing and correcting their code, allowing them to focus on the more critical aspects of their development work.
 

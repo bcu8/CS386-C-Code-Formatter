@@ -3,6 +3,10 @@
 
 // prototypes
 
+//this line is 79 characters long==============================================
+//This line is 80 characters long===============================================
+//this line is 81 characters long================================================
+
 /*
 Name: addItem
 Process: adds item to set, does not allow duplicates,
@@ -657,7 +661,8 @@ void runMergeSortHelper( SetType *setData, int lowIndex, int highIndex )
 	
 		//now merge the 2 subsets into a sorted set
 		   //function runMergeSort
-		runMerge(setData, lowIndex, middleIndex, highIndex);} 
+		runMerge(setData, lowIndex, middleIndex, highIndex);
+      }
    }
 	
 

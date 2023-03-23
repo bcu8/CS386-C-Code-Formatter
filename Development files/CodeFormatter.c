@@ -114,7 +114,9 @@ bool getNextChar(FILE *filePtr, char *currentChar, char *lastChar )
 	   
 	return true;
    }
-   
+/*
+Detects white space excluding new line char.
+*/   
 bool isWhiteSpace(char chr )
    {
 	   if (chr == '\t' || chr == '\r' || chr == '\v' || chr == '\f' || chr == ' ')
@@ -123,7 +125,10 @@ bool isWhiteSpace(char chr )
 	      }
 	   return false;
    }
-   
+
+/*
+processes input file and writes formatted version to output file.
+*/   
 bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
    {
 	//initialize variables
@@ -152,13 +157,16 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 				lineLength=0;
 				
 				//increment current line
-				currentLine++;
+				//currentLine++;
 				
 				//account for possibility of multiple new lines, loop through them.
 				while ( currentChar == '\n')
 				   {
 					//write new line
 					writeEndlineToFile();
+					
+					//increment current line
+					currentLine++;
 					
 					//read through characters until white space is gone
 					while ( isWhiteSpace(trashChar) )
@@ -176,7 +184,7 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 					currentChar=trashChar;
 					
 					//reset trashChar
-					trashChar=' ';	
+					trashChar=' ';
 				   }					
 
 				//determine if change in leading spaces is necessary
@@ -187,8 +195,14 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 					//print leading spaces
 					writeCharactersToFile(indent, ' ');
 			
+					//update line length
+					lineLength+=indent;
+					
 					//print currentChar to outFile
 					writeCharacterToFile(currentChar);
+					
+					//increment line length
+					lineLength++;
 					}
 				else if ( currentChar == '}' )
 					{
@@ -196,15 +210,24 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 					//print leading spaces
 					writeCharactersToFile(indent, ' ');
 			
+					//update line length
+					lineLength+=indent;
+					
 					//print currentChar to outFile
 					writeCharacterToFile(currentChar);
+					
+					//increment line length
+					lineLength++;
 					
 					indent-=3;								
 					}
 				else if (indent==0)
 					{			
 					//print currentChar to outFile
-					writeCharacterToFile(currentChar);  
+					writeCharacterToFile(currentChar);
+					
+					//increment line length
+					lineLength++;
 			        }			
 				else
 				   {
@@ -215,7 +238,7 @@ bool writeFormattedFile(FILE *inputFilePtr, bool outputOpen, char *outFileName)
 					writeCharacterToFile(currentChar);
 					
 					//update line length
-					lineLength=indent+1;
+					lineLength+=indent+1;
 				   }										   
 			   }
 			else 

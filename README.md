@@ -28,9 +28,6 @@ In this test case, the checkSingleLetterVariables function is called with a code
 
 In this test case, the checkSingleLetterVariables function is called with a code string that contains two multi-letter variables (num and letter): const codeString = 'int num = 5; char letter = "a";';. The function returns an empty suggestion string: ''. This means that the function correctly does not suggest more descriptive names for multi-letter variables.
 
-## Deployment
-To deploy changes, use the team login credentials to log in to the client area for[Infinity Free]([Markdown Live Preview](https://markdownlivepreview.com/)). Next get the scp details and use fileZilla or a similar file transfer service to make changes.
-
 ## Built With
 - Node.js
 - Jest

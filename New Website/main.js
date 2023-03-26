@@ -1,66 +1,74 @@
 let mainBody = document.getElementById("main-body");
-let resultsBody = document.getElementById("results-body");
+let resultsBody = document.getElementById("results-container");
 let preElement = document.createElement('pre');
 
 let singleLetterVariablesResults = document.getElementById("single-letter-variables-results");
 let nonSelfDocumentingVariablesResults = document.getElementById("non-self-documenting-variables-results");
-let nonAlignedBracesAndBracketsResults = document.getElementById("non-aligned-braces-and-brackets-results");
 let redundantBooleanTestsResults = document.getElementById("redundant-boolean-tests-results");
 let codeResults = document.getElementById("code-results");
-let slvCount = document.getElementById("slv-count");
-let nsdvCount = document.getElementById("nsdv-count");
-let nababCount = document.getElementById("nabab-count");
-let rbtCount = document.getElementById("rbt-count");
+
+class Line {
+    constructor(lineNumber, lineContent, suggestions) {
+      this.lineNumber = lineNumber;
+      this.lineContent = lineContent;
+      this.suggestions = suggestions;
+      this.hasSuggestion = suggestions.length > 0;
+    }
+}
 
 function readFile(input) {
     if (input.files && input.files[0]) {
     const reader = new FileReader();
     reader.onload = function(e) {
         const rawCode = e.target.result;
+
         let nonCommentedCode = separateComments(rawCode);
-        runTestsAndUpdateDisplay(nonCommentedCode);
+        let testedLines = runTestsAndFillLines(nonCommentedCode);
+        printLinesToScreen(testedLines);
+
+        mainBody.style.opacity = "0";
+        setTimeout(function() {
+        mainBody.style.display = "none";
+        resultsBody.style.display = "block";
+        }, 500);
+        
     };
     reader.readAsText(input.files[0]);
     }
 }
 
-function runTestsAndUpdateDisplay(nonCommentedCode) {
-    mainBody.style.opacity = "0";
-    setTimeout(function() {
-        mainBody.style.display = "none";
-    }, 500);
-    resultsBody.style.display = "flex";
+function runTestsAndFillLines(nonCommentedCode) {
+    const lines = [];
+    let codeArray = nonCommentedCode.split('\n');
 
-    singleLetterVariablesResults.innerHTML = checkSingleLetterVariables(nonCommentedCode);
-    nonSelfDocumentingVariablesResults.innerHTML = checkNonSelfDocumentingVariables(nonCommentedCode);
-    nonAlignedBracesAndBracketsResults.innerHTML = checkBraces(nonCommentedCode);
-    redundantBooleanTestsResults.innerHTML = checkRedundantBooleanTests(nonCommentedCode);
-    
-    let slvResult = checkSingleLetterVariables(nonCommentedCode);
-    if (slvResult[0] > 0) slvCount.innerHTML = slvResult[0];
+    codeArray.forEach((rawLine, index) => {
+        lines.push(new Line(index, rawLine, checkSingleLetterVariables(rawLine) + checkNonSelfDocumentingVariables(rawLine) + checkRedundantBooleanTests(rawLine)));
+    });
 
-    let nsdvResult = checkNonSelfDocumentingVariables(nonCommentedCode);
-    if (nsdvResult[0] > 0) nsdvCount.innerHTML = nsdvResult[0];
+    console.log(lines);
+    return lines;
 
-    let nababResult = checkBraces(nonCommentedCode);
-    if (nababResult[0] > 0) nababCount.innerHTML = nababResult[0];
-
-    let rbtResult = checkRedundantBooleanTests(nonCommentedCode);
-    if (rbtResult[0] > 0) rbtCount.innerHTML = rbtResult[0];
-
-    createResultCodeList(nonCommentedCode);
-    
 }
 
-function createResultCodeList(codeString) {
-    let codeArray = codeString.split('\n');
+function printLinesToScreen(lines) {
     let listElement = document.createElement('ul');
-    for (let i = 0; i < codeArray.length; i++) {
+    for (let i = 0; i < lines.length; i++) {
         let listItem = document.createElement('li');
+        listItem.id = 'line-' + (i + 1);
         let preElement = document.createElement('pre');
-        preElement.textContent = (i + 1) + ': ' + codeArray[i];
+        preElement.textContent = (i + 1) + ': ' + lines[i].lineContent;
         listItem.appendChild(preElement);
         listElement.appendChild(listItem);
+
+        if (lines[i].hasSuggestion) {
+            listItem.style.color = "red";
+            let suggestionLine = document.createElement('li');
+            let preElement = document.createElement('pre');
+            preElement.textContent = '\n----- ' + lines[i].suggestions + '\n';
+            suggestionLine.appendChild(preElement);
+            listElement.appendChild(suggestionLine);
+            suggestionLine.style.color = "#49b1fe";
+        }
     }
     codeResults.innerHTML = '';
     codeResults.appendChild(listElement);
@@ -95,128 +103,44 @@ function separateComments(fileContent) {
 
 }
 
-function checkSingleLetterVariables(nonCommentedCode) {
-    const lines = nonCommentedCode.split('\n');
-    let lineNumber = 1;
-    let testResult = [];
-    let errorCount = 0;
-    let linesWithErrors = [];
+function checkSingleLetterVariables(codeString) {
+    const declarationMatches = codeString.matchAll(/(int|char|float|double|bool)\s+(\w)\b/g);
+    let suggestion = '';
 
-    lines.forEach(line => {
-        // Check for variable declarations
-        const declarationMatches = line.matchAll(/(int|char|float|double|bool)\s+(\w)\b/g);
-        for (const match of declarationMatches) {
-            testResult.push(`Line ${lineNumber}: Consider using a more descriptive name for variable '${match[2]}'`);
-            linesWithErrors.push(lineNumber);
-        }
-        lineNumber++;
-    });
-
-    errorCount = testResult.length;
-    testResult.unshift(errorCount);
-
-    console.log(linesWithErrors);
-
-    return testResult;
-
+    for (const match of declarationMatches) {
+        suggestion += `Consider using a more descriptive name for variable '${match[2]}'. `;
+    }
+    return suggestion;
 }
 
-function checkNonSelfDocumentingVariables(nonCommentedCode) {
-    const lines = nonCommentedCode.split('\n');
-    let lineNumber = 1;
-    let testResult = [];
-    let errorCount = 0;
+function checkNonSelfDocumentingVariables(codeString) {
+    const declarationMatches = codeString.matchAll(/(int|char|float|double)\s+(\w+)\b/g);
+    let suggestion = '';
     const defaultNames = ['index', 'count', 'temp', 'num', 'value'];
-  
-    lines.forEach(line => {
-        // Check for variable declarations
-        const declarationMatches = line.matchAll(/(int|char|float|double)\s+(\w+)\b/g);
-        for (const match of declarationMatches) {
-            // Check if variable name is a common default name
-            if (defaultNames.includes(match[2])) {
-                testResult.push(`Line ${lineNumber}: Consider using a more descriptive name for variable '${match[2]}'\n`);
-            }
-            // Check if variable name is too short or too long
-            else if (match[2].length < 3 || match[2].length > 20) {
-                testResult.push(`Line ${lineNumber}: Consider using a more descriptive name for variable '${match[2]}'\n`);
-            }
-            // Check if variable name contains only uppercase letters or only lowercase letters
-            else if (match[2] === match[2].toUpperCase() || match[2] === match[2].toLowerCase()) {
-                testResult.push(`Line ${lineNumber}: Consider using camelCase or snake_case for variable '${match[2]}'\n`);
-            }
+
+    for (const match of declarationMatches) {
+        if (defaultNames.includes(match[2])) {
+            suggestion += `Consider using a more descriptive name for variable '${match[2]}'\n`;
         }
-        lineNumber++;
-    });
-
-    errorCount = testResult.length;
-    testResult.unshift(errorCount);
-  
-    return testResult;
-
-}
-
-function checkBraces(nonCommentedCode) {
-    let testResult = [];
-    let errorCount = 0;
-    let lines = nonCommentedCode.split('\n');
-    let stack = [];
-
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i];
-        for (let j = 0; j < line.length; j++) {
-            // If the current character is an opening brace or bracket, push it onto the stack along with its line number
-            if (line[j] === '{' || line[j] === '[') {
-                stack.push({char: line[j], line: i});
-            } else if (line[j] === '}') {
-                // If the current character is a closing curly brace, check if it matches with an opening curly brace on top of the stack
-                if (stack.length === 0 || stack[stack.length - 1].char !== '{') {
-                    testResult.push(`Line ${i + 1}: Extra closing curly brace\n`);
-                } else {
-                    stack.pop();
-                }
-            } else if (line[j] === ']') {
-                if (stack.length === 0 || stack[stack.length - 1].char !== '[') {
-                    testResult.push(`Line ${i + 1}: Extra closing square bracket\n`);
-                } else {
-                    stack.pop();
-                }
-            }
+        // Check if variable name is too short or too long
+        else if (match[2].length < 3 || match[2].length > 20) {
+            suggestion += `Consider using a more descriptive name for variable '${match[2]}'\n`;
+        }
+        // Check if variable name contains only uppercase letters or only lowercase letters
+        else if (match[2] === match[2].toUpperCase() || match[2] === match[2].toLowerCase()) {
+            suggestion += `Consider using camelCase or snake_case for variable '${match[2]}'\n`;
         }
     }
-    while (stack.length > 0) {
-        let item = stack.pop();
-        if (item.char === '{') {
-            testResult.push(`Line ${item.line + 1}: Unclosed curly brace\n`);
-        } else if (item.char === '[') {
-            testResult.push(`Line ${item.line + 1}: Unclosed square bracket\n`);
-        }
-    }
-
-    errorCount = testResult.length;
-    testResult.unshift(errorCount);
-
-    return testResult;
-
+    return suggestion;
 }
 
-function checkRedundantBooleanTests(nonCommentedCode) {
-    const lines = nonCommentedCode.split('\n');
-    let lineNumber = 1;
-    let testResult = [];
-    let errorCount = 0;
-  
-    lines.forEach(line => {
-        // Check for redundant boolean tests
-        if (line.includes('== true') || line.includes('== false')) {
-            testResult.push(`Line ${lineNumber}: Consider removing the redundant '== true' or '== false' test\n`);
-        }
-        lineNumber++;
-    });
-    
-    errorCount = testResult.length;
-    testResult.unshift(errorCount);
+  function checkRedundantBooleanTests(codeString) {
+    let suggestion = '';
 
-    return testResult;
+    if (codeString.includes('== true') || codeString.includes('== false')) {
+        suggestion += `Consider removing the redundant '== true' or '== false' test\n`;
+    }
 
-  }
+    return suggestion;
+}
 

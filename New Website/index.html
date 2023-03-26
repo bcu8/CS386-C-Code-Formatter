@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
+    <title>C Formatter</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="CFormatterLogo.png" alt="C Formatter">
+    </header>
+    <div class=body id="main-body">
+        <div class="description">
+            Welcome to C Formatter.<br/>Upload a .c file and we will provide formatting suggestions based on our <a id="gur-link" href="#">General Usage Rubric.</a>
+        </div>
+        <div class="file-upload-container">
+            <input type="file" id="file-input" accept=".c" onchange="readFile(this)"/>
+            <label for="file-input" id="file-input-label">
+                Choose a File
+            </label>
+        </div>
+    </div>
+    <div class="body" id="results-body">
+        <div id="listed-results">
+            <div class="results-title">
+                Here's what we found:
+            </div>
+            <div class="results-header">
+                <span class="result-count" id="slv-count">No</span> Single Letter Variables
+            </div>
+            <div class="results" id="single-letter-variables-results"></div>
+            <div class="results-header">
+                <span class="result-count" id="nsdv-count">No</span> Non-Self-Documenting Variables
+            </div>
+            <div class="results" id="non-self-documenting-variables-results"></div>
+            <div class="results-header">
+                <span class="result-count" id="nabab-count">No</span> Non-Aligned Braces and Brackets
+            </div>
+            <div class="results" id="non-aligned-braces-and-brackets-results"></div>
+            <div class="results-header">
+                <span class="result-count" id="rbt-count">No</span> Redundant Boolean Tests
+            </div>
+            <div class="results" id="redundant-boolean-tests-results"></div>
+        </div>
+        <div id="code-results"></div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

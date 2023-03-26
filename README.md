@@ -24,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 ## Deployment
-
+To deploy changes, use the team login credentials to log in to the client area for[Infinity Free]([Markdown Live Preview](https://markdownlivepreview.com/)). Next get the scp details and use fileZilla or a similar file transfer service to make changes.
 
 ## Built With
 

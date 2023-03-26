@@ -15,19 +15,30 @@ These instructions will get you a copy of the project up and running on your loc
 2. Run the system using the command line on your local machine. 
 
 ## Running the tests
-
+In order to run the tests, make sure you have Node.js installed. To execute testing, ```cd``` into the program directory and run ```npm test```.
 
 ### Break down into end to end tests
+Each test runs a specific GUR testing function, and determines if it returns the proper suggestions for different use cases. The tests run strings through the functions, determining if the results are correct for the given parameter. One of the tests focuses on the checkSingleLetterVariables function. Here are some example test cases that it runs through:
 
+#### Test case 1: should suggest more descriptive names for single-letter variables
 
-### And coding style tests
+In this test case, the checkSingleLetterVariables function is called with a code string that contains two single-letter variables (x and y): const codeString = 'int x = 5; char y = "a";';. The function returns a suggestion string that contains suggestions for both of these variables: "Consider using a more descriptive name for variable 'x'. Consider using a more descriptive name for variable 'y'. ". This means that the function correctly suggests more descriptive names for single-letter variables.
 
+#### Test case 2: should not suggest more descriptive names for multi-letter variables
+
+In this test case, the checkSingleLetterVariables function is called with a code string that contains two multi-letter variables (num and letter): const codeString = 'int num = 5; char letter = "a";';. The function returns an empty suggestion string: ''. This means that the function correctly does not suggest more descriptive names for multi-letter variables.
 
 ## Deployment
 To deploy changes, use the team login credentials to log in to the client area for[Infinity Free]([Markdown Live Preview](https://markdownlivepreview.com/)). Next get the scp details and use fileZilla or a similar file transfer service to make changes.
 
 ## Built With
-
+- Node.js
+- Jest
+- VSCode Live Server
+- Chrome Dev Tools
+- Hostwinds
+- Infiniti Free
+- FileZilla
 
 ## Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get involved.

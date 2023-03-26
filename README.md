@@ -30,7 +30,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 ## Contributing
-
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get involved.
 
 ## Versioning
 We are using Github for versioning. 

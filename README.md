@@ -49,4 +49,5 @@ We are using Github for versioning.
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-
+* Professor Leverington, provided the GUR and multiple C utility files used early in development.
+* Professor Chaves, assigned this team project.

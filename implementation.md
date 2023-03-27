@@ -38,9 +38,20 @@ Approved by: Nick Wiltshire
 
 ### 3. Tests
 
-* 3.1.1 Test Framework
-	* We used Jest JavaScript testing framework.
-* 3.1.2
+*3.1.3 Test Example
+	* Link to testing above.
+	*Test case example:
+One of the tests focuses on the checkSingleLetterVariables function. Here are some example test cases that it runs through:
+
+Test case 1: should suggest more descriptive names for single-letter variables
+
+In this test case, the checkSingleLetterVariables function is called with a code string that contains two single-letter variables (x and y): const codeString = 'int x = 5; char y = "a";';. The function returns a suggestion string that contains suggestions for both of these variables: "Consider using a more descriptive name for variable 'x'. Consider using a more descriptive name for variable 'y'. ". This means that the function correctly suggests more descriptive names for single-letter variables.
+
+Test case 2: should not suggest more descriptive names for multi-letter variables
+
+In this test case, the checkSingleLetterVariables function is called with a code string that contains two multi-letter variables (num and letter): const codeString = 'int num = 5; char letter = "a";';. The function returns an empty suggestion string: ''. This means that the function correctly does not suggest more descriptive names for multi-letter variables.
+*3.1.4 Test Results
+
 
 
 ### 4. Adopted technologies

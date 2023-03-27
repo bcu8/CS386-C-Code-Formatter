@@ -108,6 +108,9 @@ Screenshots.**
 
 ![image](https://user-images.githubusercontent.com/116871920/227813007-67df9c3a-38c0-4d8d-ae87-149bdd48fc12.png)
 
+![image](https://user-images.githubusercontent.com/116871920/227813112-2effc49a-d7c5-4d12-b854-e13217b0f98f.png)
+
+
 We chose to use a user interface that was clean and easy to use, as well as an interface that was simple and without an unnecessary amount of pages. The results interface could be improved, but for now it displays the user’s code back to them with highlighting and injected suggestions. It shows the user what issues the formatter found in red and suggestions on how to fix them in blue.
 
 

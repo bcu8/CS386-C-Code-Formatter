@@ -51,6 +51,7 @@ Test case 2: should not suggest more descriptive names for multi-letter variable
 
 In this test case, the checkSingleLetterVariables function is called with a code string that contains two multi-letter variables (num and letter): const codeString = 'int num = 5; char letter = "a";';. The function returns an empty suggestion string: ''. This means that the function correctly does not suggest more descriptive names for multi-letter variables.
 *3.1.4 Test Results
+![image](https://user-images.githubusercontent.com/116871920/227813367-9d9b58ed-8ab1-4be7-a58a-11a4108c9575.png)
 
 
 

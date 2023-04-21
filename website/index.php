@@ -1,90 +1,48 @@
 <!DOCTYPE html>
-  <html>
-    
-    <head>
-      <title>C Code Formatter</title>
-
-      <link rel="stylesheet" href="styles.css">
-    </head>
-
-      <body>
-
-        <header>C Code Formatter</header>
-
-        <main>
-
-          <div class="left">Format your Code
-            <button class="mainDirNav" onclick="window.location='upload.html'">
-
-                <h2>File Upload</h2>
-            
-            </button>
-          </div>
-
-          <div class="middle">
-            <embed src="resources/GUR_CS249.pdf" type="application/pdf" width="100%" height="600px" />
-          </div>  
-
-          <div class="right">Other Information
-            <button class="mainDirNav" onclick="window.location='about.html'">
-                <h2>About this project</h2>
-            </button>
-
-            <button class="mainDirNav" onclick="window.location='feedback.html'">
-             <h2>Provide feedback to devs</h2>
-            </button>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+        <img class="logo" src="CFormatterLogo.png" alt="C Formatter">
+    </header>
+    <div class="main-container" id="main-body">
+        <div id="welcome">
+            Welcome to C Formatter.
         </div>
-          
-        </main>
+        <div class="description">
+            Login to upload a .c file and we will provide formatting suggestions based on our <a id="gur-link" href="http://nwiltshire.com/cformatter/GUR.pdf">General Usage Rubric.</a>
+        </div>
+        <?php
+            session_start();
+            if ($_SESSION["loginError"])
+            {
+                echo "<script>";
+                echo "alert(\"Username or password is incorrect\");";
+                echo "</script>";
+            }
 
-      </body>
+            unset($_SESSION["status"]);
+            unset($_SESSION["password"]);
+            unset($_POST["username"]);
+            unset($_POST["password"]);
+        ?>
+        <form class="sign-in-form" method="POST" action="login.php">
+            <input required class="username-password-input-label" type="text" name="username" placeholder="Username">
+            <br>
+            
+            <input required class="username-password-input-label" type="password" name="password" placeholder="Password">
 
-  </html>
-
-
-
-<!--<!DOCTYPE html>
-<html>
-<head>
-    <title>Code Formatter</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="header"><h1>Code Formatter For C</h1></div>
-
-<div>
-<button class="mainDirNav" onclick="window.location='upload.html'">
-
-    <h2>Format your code</h2>
-
-</button>
-
-<button class="mainDirNav" onclick="window.location='displayGUR.php'">
-
-    <h2>View the GUR</h2>
-
-</button>
-
-<br>
-
-<button class="mainDirNav" onclick="window.location='upload.html'">
-
-    <h2>About this project</h2>
-
-</button>
-
-<button class="mainDirNav" onclick="window.location='feedback.html'">
-
-    <h2>Provide feedback to devs</h2>
-
-</button>
-</div>
-
-<div>
-    <embed src="resources/GUR_CS249.pdf" type="application/pdf" width="100%" height="600px" />";
-</div>
-    
-
-</body>
+            <br>
+            <input class="button-label" id="submit-button" type="submit" value="Submit">
+        </form>
+        <br>
+        <a class="button-label" href="signupForm.php">Create an Account</a>
+    </div>
+  </body>
 </html>
--->

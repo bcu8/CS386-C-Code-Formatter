@@ -262,4 +262,3 @@ Not all students struggle with c code styling/formatting. basic conventions come
 * Save time formatting code 
 * Increase code readibility
 * Standardize a formatting strategy for individual or group work
-

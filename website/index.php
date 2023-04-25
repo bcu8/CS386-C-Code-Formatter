@@ -31,6 +31,18 @@
             unset($_SESSION["password"]);
             unset($_POST["username"]);
             unset($_POST["password"]);
+
+            if ($_GET['logout']==1)
+               {
+                setcookie("username", "", time() - 3600);
+                setcookie("password", "", time() - 3600);
+               }            
+            else if(isset($_COOKIE["username"]) && isset($_COOKIE["password"]) ) 
+               {
+                $_SESSION["status"] = $_COOKIE["username"];
+                $_SESSION["password"] = $_COOKIE["password"];
+                header("Location: account.php");
+               }
         ?>
         <form class="sign-in-form" method="POST" action="login.php">
             <input required class="username-password-input-label" type="text" name="username" placeholder="Username">
@@ -38,6 +50,9 @@
             
             <input required class="username-password-input-label" type="password" name="password" placeholder="Password">
 
+            <br>
+            <label style="color: white;" for="remember">Remember me</label>
+            <input type="checkbox" name="remember">
             <br>
             <input class="button-label" id="submit-button" type="submit" value="Submit">
         </form>

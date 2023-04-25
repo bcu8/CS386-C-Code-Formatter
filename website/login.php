@@ -32,6 +32,11 @@
         if ($_SESSION["status"] == $_POST["username"])
         {
             //echo "<a href=\"account.php\" class=\"button-label\" id=\"bigger-button-label\">Submit or view your files</a>";
+            if (isset($_POST["remember"]))
+               {
+                setcookie("username", $_SESSION["status"], time() + (10 * 365 * 24 * 60 * 60), "/");
+                setcookie("password", $_SESSION["password"], time() + (10 * 365 * 24 * 60 * 60), "/");
+               }
             header("Location: account.php");
         }
 

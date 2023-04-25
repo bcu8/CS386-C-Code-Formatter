@@ -342,4 +342,50 @@ function printFile($string)
    {
     echo $string;
    }
+
+function clearUserFiles()
+   {
+    $this_directory = dirname(__FILE__);
+            
+    // Folder path to be flushed
+    $folder_path = $this_directory . "/userFiles";
+   
+    // List of name of files inside
+    // specified folder
+    $filesToDelete = glob($folder_path.'/*'); 
+   
+    // Deleting all the files in the list
+     foreach($filesToDelete as $fileToDelete) 
+        {   
+         if(is_file($fileToDelete)) 
+            {
+             // Delete the given file
+             unlink($fileToDelete); 
+            }
+        }
+   }
+
+function deleteFromDB($username, $filename)
+   {
+    //connect
+    $conn = connectToDB();
+
+    //test connection
+    if ($conn)
+       {
+        //echo "Success! Connection established." . "<br>";
+       }
+    else
+       {
+        return "Could not connect to database.";
+       }
+    
+    $sql = "DELETE FROM " . TABLE . " WHERE filename='" . $filename . "' AND username='" . $username . "';";
+
+    //echo $sql;
+    
+    $result = mysqli_query($conn, $sql);
+    
+    mysqli_close($conn);
+   }
 ?>

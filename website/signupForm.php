@@ -15,11 +15,11 @@
         <div class="description">Create an account.</div>
 
         <form class="sign-in-form" method="post">
-        <input class="username-password-input-label" type="text" name="username" placeholder="Username">
+        <input required class="username-password-input-label" type="text" name="username" placeholder="Username">
         <br>
-        <input class="username-password-input-label" type="password" name="password" placeholder="Password">
+        <input required class="username-password-input-label" type="password" name="password" placeholder="Password">
         <br>
-        <input class="username-password-input-label" type="password" name="confirmPassword" placeholder="Confirm Password">
+        <input required class="username-password-input-label" type="password" name="confirmPassword" placeholder="Confirm Password">
         <br>
         <input class="button-label" type="submit" value="Submit">
     </form>
@@ -46,7 +46,7 @@
         }
     }
     ?>
-    <a class=\"button-label\"href="index.php">
+    <a class="button-label" href="index.php">
       Return to sign in
   </a>
 

@@ -34,8 +34,9 @@ In this test case, the checkSingleLetterVariables function is called with a code
 - VSCode Live Server
 - Chrome Dev Tools
 - Hostwinds
-- Infiniti Free
+- Infinity Free Web Hosting
 - FileZilla
+- ZeroSSL
 
 ## Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get involved.

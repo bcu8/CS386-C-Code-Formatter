@@ -88,9 +88,7 @@ function isWhiteSpace($chr)
 }
 
 /*
- * Function that processes the input file and writes the formatted version to the output file.
- */
-/*
+Function that processes the input file and writes the formatted version to the output file.
 Processes input file and writes formatted version to output file.
 */
 function writeFormattedFile($inputFilePtr, $outputOpen, $outFileName)

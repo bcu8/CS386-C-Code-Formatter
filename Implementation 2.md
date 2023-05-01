@@ -90,6 +90,22 @@ Print screen:
 ![js](https://user-images.githubusercontent.com/102091712/235412440-b36088a8-928f-4e79-893f-1c4552f01399.png)
 
 
+**Requirement:** As a programmer, I’d like to be able to view my get my code formatted so that I can download it.
+
+**Issue:** [issue](https://github.com/bcu8/CS386-C-Code-Formatter/issues/56)
+
+**Pull Request** [pull request](https://github.com/bcu8/CS386-C-Code-Formatter/pull/61)
+
+**Implemented by:** Ethan Ihkifa
+
+**Approved by:** Brandon Udall
+
+**Print Screen:**
+
+![unnamed](https://user-images.githubusercontent.com/102456298/235414440-0b4c899b-a92c-4336-8e7c-af4d1086344d.png)
+
+
+
 ### Tests
 We used the Jest testing framework for testing our Javascript functions that look for formatting errors in user submitted code. 
 

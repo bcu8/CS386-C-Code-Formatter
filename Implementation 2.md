@@ -94,6 +94,7 @@ Link to class: https://github.com/bcu8/CS386-C-Code-Formatter/blob/main/Testing_
 Link to test: https://github.com/bcu8/CS386-C-Code-Formatter/blob/main/Testing_Environment/Testing%20Environment/methods.test.js
 
 Print screen of result of automated test: 
+
 ### Demo
 [Demo](https://youtu.be/1rftiBm3Zms) 
 

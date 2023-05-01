@@ -10,13 +10,12 @@ Our product is aimed at saving programmers time writing professional code. Users
 * Non-descriptive variable names. 
 * Misaligned curly braces
 * Use of tabs causing readability issues
-* 
 
 **The source code for our project is viewable on [Github](https://github.com/bcu8/CS386-C-Code-Formatter).**
 
 ### Implemented Requirements
 
-** Requirement:** As a programmer, I would like to have the option to download and/or delete any files I have stored on the formatter website. 
+**Requirement:** As a programmer, I would like to have the option to download and/or delete any files I have stored on the formatter website. 
 
 **Issue:** [issue](https://github.com/bcu8/CS386-C-Code-Formatter/issues/60)
 
@@ -26,7 +25,8 @@ Our product is aimed at saving programmers time writing professional code. Users
 
 **Approved by:** Brandon Udall 
 
-**Print screen: **
+**Print screen:**
+
 ![unnamed (2)](https://user-images.githubusercontent.com/102091712/235412628-c7c66847-107f-48ba-8e9c-35f3f2b6237c.png)
 
 
@@ -41,6 +41,7 @@ Our product is aimed at saving programmers time writing professional code. Users
 **Approved by:** Brandon Udall
 
 Print screen: 
+
 ![unnamed (1)](https://user-images.githubusercontent.com/102091712/235412599-a4884390-3afb-49bc-adec-fa94d62f0210.png)
 
 
@@ -55,6 +56,7 @@ Print screen:
 **Approved by:** Brandon Udall
 
 **Print Screen:**
+
 ![unnamed](https://user-images.githubusercontent.com/102091712/235412566-6ae08262-dde3-4b80-84cf-730eb36f2633.png)
 
 

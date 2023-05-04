@@ -24,7 +24,7 @@ Question 3: Download the file you uploaded. What are your thoughts on the downlo
 
 Question 4: What are your overall thoughts on the system? What would you change about it and what do you like best? 
 
-Results: Conduct the user evaluation with at least 3 users. Report the data that you collected.
+### Results: 
 
 ### Client 1: Senior Developer at SalesForce
 **Pros:**

@@ -63,6 +63,3 @@ Question 4: What are your overall thoughts on the system? What would you change 
 # Reflections: 
 
 Overall, our users enjoyed how easy to use and intuitive our system is. In addition to this, they enjoyed the format of the output and how accurate, consistent, and well-organized it is. When it comes to what they didn’t like, the general consensus was that our system is not capable of handling as many limitations as some would like. One significant drawback was that our system struggles to handle large/complex c files. 
-
-
-

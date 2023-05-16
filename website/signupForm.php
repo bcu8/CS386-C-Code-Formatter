@@ -20,6 +20,8 @@
         <input required class="username-password-input-label" type="password" name="password" placeholder="Password">
         <br>
         <input required class="username-password-input-label" type="password" name="confirmPassword" placeholder="Confirm Password">
+        <label style="color: white;" for="remember">Remember me</label>
+            <input type="checkbox" name="remember">
         <br>
         <input class="button-label" type="submit" value="Submit">
     </form>
@@ -31,7 +33,7 @@
         {
 
             $result = createUserAccount($_POST["username"], $_POST["password"], $_POST["confirmPassword"]);
-
+        
         if ($result != $_POST["username"])
         {
             echo "<script>";
@@ -40,8 +42,13 @@
         }
         else
         {
-            $_SESSION["msg"] = "Success! You are now signed in as " . $result . ".";
             $_SESSION["status"] = $result;
+            $_SESSION["password"] = $_POST["password"];
+            if (isset($_POST["remember"]))
+               {
+                setcookie("username", $_SESSION["status"], time() + (10 * 365 * 24 * 60 * 60), "/");
+                setcookie("password", $_SESSION["password"], time() + (10 * 365 * 24 * 60 * 60), "/");
+               }
             header("Location: account.php");
         }
     }

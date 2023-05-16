@@ -16,7 +16,7 @@
             Welcome to C Formatter.
         </div>
         <div class="description">
-            Login to upload a .c file and we will provide formatting suggestions based on our <a id="gur-link" href="http://nwiltshire.com/cformatter/GUR.pdf">General Usage Rubric.</a>
+            Login to upload a .c file and we will provide formatting suggestions based on our <a id="gur-link" href="GUR_CS249.pdf" target="_blank">General Usage Rubric.</a>
         </div>
         <?php
             session_start();

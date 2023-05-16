@@ -6,6 +6,9 @@ define("TABLE", "accounts");
 define("USERNAME", "epiz_33800292");
 define("PASSWORD", "Y0vOysh2y8tV");
 
+define("THIS_DIR", dirname(__FILE__));
+define("USER_FILES_PATH", THIS_DIR . "/userFiles");
+
 //connect to the database. returns connection object.
 function connectToDB()
    {
@@ -264,7 +267,7 @@ function storeFileInDB($username, $password, $filename, $file)
        }
     
     echo "<p class=\"description\">Your Files:</p>";
-    echo "<form class=\"results-button-container\" method=\"post\">";
+    echo "<form class=\"results-button-container\" method=\"post\" action=\"account.php\">";
     
     $iteration=0;
     while ($row = mysqli_fetch_assoc($result))
@@ -314,6 +317,7 @@ function getFile($filename)
    {
     //connect
     $conn = connectToDB();
+    session_start();
 
     //test connection
     if ($conn)
@@ -325,7 +329,7 @@ function getFile($filename)
         return "Could not connect to database.";
        }
     
-    $sql = "SELECT file FROM " . TABLE . " WHERE filename='" . $filename . "';";
+    $sql = "SELECT file FROM " . TABLE . " WHERE filename='" . $filename . "' AND username='" . $_SESSION["status"] . "';";
 
     //echo $sql;
     
@@ -387,5 +391,105 @@ function deleteFromDB($username, $filename)
     $result = mysqli_query($conn, $sql);
     
     mysqli_close($conn);
+   }
+
+//run white space formatter function takes in a .c file and formats the whitespace according to 
+//leveringtons preference. The file contents are returned as a string
+function runWhiteSpaceFormatter($fileContents)
+   {
+    //define variables
+    $formattedFile = '';
+    $trashChar = ' ';
+    $fileLen = strlen($fileContents);
+    $indent=0;
+
+    //loop through the string character by character
+    for ($i=0; $i<$fileLen; $i++)
+       {
+        //get next character
+        $currentChar = $fileContents[$i];
+        //$currentChar = '\n';
+        //echo ord($currentChar) . ' ' ;
+
+        //check if current char is new line
+        if (strstr($currentChar, PHP_EOL))
+           {
+            //echo "NEW";
+            //write new line(s)
+            while(strstr($currentChar, PHP_EOL))
+               {
+                $formattedFile = $formattedFile . '\n';
+
+                //filter all other whitespace
+                while( isWhiteSpace($trashChar) )
+                   {
+                    //return finished string if end detected, else get next char
+                    if ($i >= $fileLen) { return str_replace("\n", PHP_EOL, $formattedFile); } else {$i++; $trashChar = $fileContents[$i];}
+                   }
+                
+                //store new currentChar
+                $currentChar = $trashChar;
+
+                //reset trash char
+                $trashChar = ' ';
+               }
+            
+            //determine if change in leading white space is necessary
+            if ($currentChar === '{')
+               {
+                //increase indent for nested code
+                $indent+=3;
+
+                //print indent then {
+                $formattedFile = $formattedFile . str_repeat(" ", $indent) . $currentChar;        
+               }
+            else if ($currentChar === '}')
+               {
+                //print indent then }
+                $formattedFile = $formattedFile . str_repeat(" ", $indent) . $currentChar;
+
+                //decrease indent, exiting nested section
+                $indent-=3;
+
+                //ensure no negative indent
+                if ($indent < 0)
+                   {
+                    $indent = 0;
+                   }
+               }
+            else if ($indent === 0)
+               {
+                //not within any form of nested section, simply print current char
+                $formattedFile = $formattedFile . $currentChar;
+               }
+            else
+               {
+                //within a nested section, but no indent change. print current indent then current char
+                $formattedFile = $formattedFile . str_repeat(" ", $indent + 1) . $currentChar;
+               }
+           }
+        //current char is not a new line, print current char
+        else
+           {
+            //replace tabs with 4 spaces
+            if ($currentChar === '\t') {$formattedFile = $formattedFile . str_repeat(" ", 4);} else {$formattedFile = $formattedFile . $currentChar;}
+           }
+       }
+    //processing complete, return formatted code
+    return str_replace("\n", PHP_EOL, $formattedFile);
+   }
+
+//checks if char is white space. Exception \n.
+function isWhiteSpace($chr)
+   {
+    if (strstr($chr, PHP_EOL))
+	      {
+	   	   return false;   
+	      }
+    else if (ctype_space($chr))
+       {
+        return true;
+       }
+    return false;
    }
 ?>

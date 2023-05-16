@@ -13,7 +13,8 @@
       <div>
         <a class="button-label" id="sign-out-button" href="index.php?logout=1">Sign out</a>
         <a class="button-label" id="sign-out-button" href="feedback.html">Provide Feedback</a>
-
+        <a class="button-label" id="sign-out-button" href="GUR_CS249.pdf" target="_blank">View GUR</a>
+        <a class="button-label" id="sign-out-button" href="about.html">About this Project</a>
       </div>
   </header>
   <p class="description">Select a file you would like to get formatting suggestions on, then click on your files to view the suggestions.</p>
@@ -35,8 +36,17 @@
         //file upload processing===========================================================================
         $result = "none";
 
-        //ensure the file was captured by html form
-        if(isset($_FILES['file']))
+        //check if wsf was run
+        if (isset($_GET['file']))
+           {
+            $file_contents = getFile($_GET['file']);
+            
+            $result = storeFileInDB($_SESSION["status"], $_SESSION["password"], $_GET['file'] ,runWhiteSpaceFormatter(addslashes($file_contents)));
+
+            $_POST['selectedFile'] = $_GET['file'];
+           }        
+        //otherwise ensure the file was captured by html form
+        elseif (isset($_FILES['file']))
            {
             //get filename
             $filename = $_FILES['file']['name'];
@@ -48,8 +58,8 @@
                 goto fileOut;
                }
 
-            //store file contents as string
-            $file_contents = addslashes(file_get_contents($_FILES["file"]["tmp_name"]));
+            //apply white space formatter and store file contents as string
+            $file_contents = /*runWhiteSpaceFormatter*/(addslashes(file_get_contents($_FILES["file"]["tmp_name"])));
 
            //store file in db
            $result = storeFileInDB($_SESSION["status"], $_SESSION["password"], $filename ,$file_contents);
@@ -66,6 +76,8 @@
               }
 
             echo "<br>";
+
+            $_POST['selectedFile'] = $filename;
            }
         //===================================================================================================
 
@@ -80,26 +92,27 @@
              // Folder path for user downloadable files
             $folder_path = $this_directory . "/userFiles";
 
-            //check for outdated file
-            if (isset($_SESSION["lastSelectedFile"]))
+            //get names of all files into an array
+            $userFiles = glob($folder_path.'/*');
+            
+            //get length of path preceeding file name
+            $beginFileNameIndex = strlen($folder_path) + 1;
+            
+            //loop through list of file names
+            foreach ($userFiles as $currentUserFile) 
                {
-                //get filename
-                $fileToDelete =  $folder_path . "/" . $_SESSION["lastSelectedFile"];
-
-                //check if fileToDelete is found
-                if(is_file($fileToDelete)) 
-                     {
-                      // Delete the given file
-                      unlink($fileToDelete); 
-                     }
+                //check username preceeding file name
+                if (substr($userFiles[0],$beginFileNameIndex, strlen($_SESSION["status"] . "_")) === $_SESSION["status"] . "_")
+                   {
+                     // Delete the given file if it matches user
+                      unlink($currentUserFile); 
+                   }
                }
             //===============================================================================================
             
             //interface and processing for selected file====================================================
             if (isset($_POST['selectedFile'])) 
                {  
-                //print horizontal line              
-                echo "<br><hr color=\"blue\">";
 
                 //get file content as string from db
                 $fileContent = getFile($_POST['selectedFile']);
@@ -120,29 +133,31 @@
                 $_SESSION["lastSelectedFile"] = $downloadableFileName;
 
                 //The file options================================================================================================================================
+                echo "<div class=\"options-container\">";
+                echo "<div class=\"middle\">";
                 //print file name
-                echo "<p class=\"description\">" . $_POST["selectedFile"] . "</p>";//<-----------------formatting?
-
-                //print file options label
-                echo "<p class=\"description\">File Options:</p>";//<-----------------formatting?
+                echo "<p class=\"description\">" . $_POST["selectedFile"] . "</p>";
 
                 //download file option
                 echo "<a class=\"button-label\" id=\"download-button\" href=\"userFiles/" . $downloadableFileName . "\" download>Download File</a>";
 
                 //white space formatter option
-                echo "<a class=\"button-label\" id=\"download-button\" href=\"userFiles/" . "whiteSpaceFormatter.php?file=" . $downloadableFileName . "\">Run White Space Formatter</a>";
+                echo "<a class=\"button-label\" id=\"download-button\" href=\"" . "account.php?file=" . $_POST['selectedFile'] . "\">Run White Space Formatter</a>";
 
                 //delete file option
                 echo "<a class=\"button-label\" id=\"download-button\" href=\"deleteFile.php?file=" . $_POST['selectedFile'] . "\">Delete File</a>";
+                echo "</div>";
+                echo "</div>";
                 //==============================================================================================================================================
 
                 //file suggestions================================================================================================================================
-                //print horizontal line
-                echo "<br><hr color=\"blue\">";
-
+                
                 //print file suggestions label
-                echo "<p class=\"description\">File Suggestions:</p>"; //<----------------------formatting?
+                echo "<p class=\"description\">File Suggestions:</p>"; 
+                //print file summary
+                echo '<p class="description" id="summary"><p>';
 
+                
                 //print file with suggestions
                 echo '<div id="code-results"></div>';
                 echo '<script src="main.js"></script>';

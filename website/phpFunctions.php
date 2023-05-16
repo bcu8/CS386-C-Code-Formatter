@@ -1,11 +1,5 @@
 <?php
 //define constants
-define("SERVERNAME", "sql113.epizy.com");
-define("DATABASE", "epiz_33800292_code_formatter");
-define("TABLE", "accounts");
-define("USERNAME", "epiz_33800292");
-define("PASSWORD", "Y0vOysh2y8tV");
-
 define("THIS_DIR", dirname(__FILE__));
 define("USER_FILES_PATH", THIS_DIR . "/userFiles");
 

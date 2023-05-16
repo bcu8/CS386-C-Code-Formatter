@@ -31,14 +31,14 @@
         $sql = "INSERT INTO feedback (USER_TEXT) VALUES ('" . $_POST['feedback'] . "')";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<p class=\"description\">Your feedback has been successfully submitted. Thank you!</p>";
+            echo "<p class=\"description\">Your feedback has been submitted. Thank you!</p>";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         mysqli_close($conn);
         ?>
 
-        <a class="button-label" href="account.php">Back to account</a>
+        <a class="button-label" href="account.php">Back to formatter</a>
     </div>
   </body>
 </html>

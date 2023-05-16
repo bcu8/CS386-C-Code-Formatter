@@ -2,34 +2,108 @@
 <html>
 <head>
     <title>About</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>       
+    hr{
+        height: 1px;
+        background-color: blue;
+        border: none;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header class="account-header">
+      <img class="logo" src="CFormatterLogo.png" alt="C Formatter">
+      <div>
+        <a class="button-label" id="sign-out-button" href="account.php">Return to Formatter</a>
+      </div>
+      </header>
+<p class="description" style="font-size: 30px">About This Project</p>
 
-<h1>About This Project</h1>
+<p class="description" style="text-align: left; font-size: 24px">Purpose:</p>
 
-<h3>Purpose</h3>
-<p>
+<p class="description" style="text-align: left">
     The purpose of this project is to make it easier to implement best practices into your code.
-    The code formatter will NOT alter the file(s) you provide. Instead a new formatted file will be created for download onto your device.
-    Not all the GUR violations are guarded against. Below you can find a list of the GUR violations checked by the formatter. 
+    Not all the GUR violations are guarded against. Below you can find a list of the GUR violations checked by the latest version of our site. 
 </p>
 
-<h3>Project Creators:</h3>
-<p>
-    <ul>
-        <li>Brandon Udall</li>
+<hr style="background-color:blue">
+
+<p class="description" style="text-align: left; font-size: 24px">How to use:</p>
+
+<p class="description" style="text-align: left">
+    Write your code and ensure it is free of compiling errors and warnings. Upload the file via the account page. Once uploaded you may view our suggestions and use our white space formatter. If the white space formatter is run, our saved copy of your file is replaced with the formatted version and you may click "download file" to download the white space formatted version.
+</p>
+
+<p class="description" style="text-align: left">
+
+    The white space formatter will:
+    <ul class="description" style="text-align: left; margin-left:80px">
+        <li>replace tabs with 4 spaces</li>
+        <li>automatically align curly braces (as long as they are on a line of their own)</li>    
+        <li>Add consistent indentation to blocks of code</li>
+        </ul>
+</p>
+
+<p class="description" style="text-align: left">
+    The following items are known to cause erroneous suggestions: 
+    
+    <ul class="description" style="text-align: left; margin-left:80px">
+        <li>Use of curly braces within strings</li>
+        <li>Code that has compiling errors</li>    
+    </ul>
+</p>
+
+<hr style="background-color:blue">
+
+<p class="description" style="text-align:left; font-size:24px">
+    Current GUR Checks
+    <ol class="description" style="text-align: left; margin-left:80px">
+        <li style="color: green">Checked</li>
+        <li style="color: green">Checked</li>    
+        <li style="color: green">Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: green">Checked</li>
+        <li style="color: red">Not Checked</li>
+        <li style="color: red">Not Checked</li>
+    </ol>
+</p>
+
+<hr style="background-color:blue">
+
+<p class="description" style="text-align:left; font-size:24px">
+    Developers:
+    <ul class="description" style="text-align: left; margin-left:80px">
+        <li>Nicolas Wiltshire (main front end dev)</li>
+        <li>Brandon Udall (main back end dev)</li>
         <li>Kane Davidson</li>    
         <li>Ryley Fernandez</li>
         <li>Ethan Ikhifa</li>
         <li>Ian Tuohy</li>
-        <li>Nicolas Wiltshire</li>
     </ul>
 </p>
 
-<h3>Project Source Code</h3>
-<p>
-    <a href="https://github.com/bcu8/CS386-C-Code-Formatter/tree/main">GitHub Page</a>
+<hr style="background-color:blue">
+
+<p class="description" style="text-align: left; font-size: 24px">Source Code:</p>
+
+<p class="description" style="text-align: left">
+    <a class="button-label" href="https://github.com/bcu8/CS386-C-Code-Formatter/tree/main" target="_blank"">View GitHub Page</a>
 </p>
 </body>
 </html>
